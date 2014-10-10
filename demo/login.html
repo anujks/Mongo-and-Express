@@ -1,0 +1,34 @@
+<html>
+<body>
+ <h1>Login</h1>
+
+  {%if errors %}
+  	<ul>
+  	{% for error in errors %}
+  		<li>{{error.param}} {{error.msg}}</li>
+  	{% endfor %}
+  	</ul>
+  {% endif %}
+
+ <form method="post" action="/login">
+  {% if next_url %}
+ 	<input type="hidden" name="next_url" value="{{next_url}}" /> 
+  {% endif %}
+
+  {% if mappedErrors.username %}
+  	<span style="color:red">*</span>
+  {% endif %}
+  User name <input name="username" type="text" /> <br /> <br />
+
+
+  {% if mappedErrors.password %}
+  	<span style="color:red">*</span>
+  {% endif %}
+
+  Password <input name="password" type="password" /> <br />
+   <input type="submit" value="Login" />
+ </form>
+
+</body>
+
+</html>
