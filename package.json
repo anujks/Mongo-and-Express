@@ -1,17 +1,19 @@
 {
-  "name": "notes",
-  "description": "simple notes app in express",
+  "name": "workshop",
+  "description": "express-workshop",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "4.x", 
+    "express": "4.2", //mention version 
     
-    "cookie-parser": "latest",
+    "cookie-parser": "latest", //latest bad!!
     "body-parser": "latest",
     "express-session": "latest",
     "cookie-session": "latest",
 
     "swig": "latest",
+
+    "connect-flash": "latest",
     
     "underscore": "latest",
     

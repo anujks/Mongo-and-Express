@@ -46,7 +46,7 @@ function nocache(req, res, next) {
   next();
 };
 
-//hangs by missing next or calling res.end()
+//hangs by missing next() or calling res.end()
 /*
 app.use(function(req, res, next){
 });

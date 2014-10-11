@@ -102,7 +102,7 @@ app.get('/new', function(req, res){
 
 app.get('/list', function(req, res){
   
-  Note.find(function(err, notes){
+  Note.find( function(err, notes){
     var note_text = '';
     for (var i in notes) {
       note_text += notes[i].title + "</br>";

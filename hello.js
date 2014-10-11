@@ -2,8 +2,6 @@ var express = require('express');
 
 var app = express();
  
-app.disable('etag');
-
 app.get('/', function(req, res){
 	res.send('Hello')
 });
@@ -22,7 +20,7 @@ app.get('/page4', function(req, res){
 });
 
 //HTTP Status code
-app.get('/page4', function(req, res){
+app.get('/page-error', function(req, res){
 	res.status(500).send('500, internal server error');
 });
 
@@ -81,7 +79,8 @@ app.get('/file', function(req, res){
 
 //file download (browser), mark as binary stream
 app.get('/file-download', function(req, res){
-	res.set('Content-Disposition', 'attachment; filename=hello.js;'); 
+	res.set('Content-Disposition', 
+		'attachment; filename=hello.js;'); 
 	res.set('Content-Type', 'application/octet-stream'); //or
  	res.status(200).sendFile(__dirname + '/hello.js'); //beware!!
 
@@ -89,6 +88,14 @@ app.get('/file-download', function(req, res){
  	//res.download(__dirname + '/hello.js');
 });
 
+
+
+//static files
+//app.use('/assets', express.static(__dirname + '/assets'));
+
+app.get('/moved', function(req, res){
+	res.redirect('/page1');
+});
 
 //Generate server error   
 app.get('/error', function(req, res){
@@ -101,6 +108,7 @@ app.use(function(req, res, next){
   res.send('What? Not found!!');
   //res.status(404).send('What? Not found!!')
 });
+
 
  
 // HTTP 500 Internal Server Error handling

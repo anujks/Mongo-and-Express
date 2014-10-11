@@ -58,7 +58,7 @@ function restrict(req, res, next) {
 //first view
 
 app.get('/', restrict, function(req, res){
-	res.locals.name = 'express';
+	res.locals.name = req.user;
 	res.render('home', {version: 4.2});
 });
 
